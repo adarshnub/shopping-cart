@@ -36,14 +36,16 @@ import {AiOutlinePlusSquare ,AiOutlineMinusSquare} from 'react-icons/ai';
                 <h1 className="text-[0.8rem]">{item.name}</h1>
   
                 <div className="flex flex-row gap-2">
-                <button onClick={() => handleAddToCart(item)} ><AiOutlinePlusSquare className="text-[30px] text-gray-500 hover:bg-gray-600 hover:text-white" /></button>
-                <p className="text-red-600">{DollarUsd.format(item.price)}</p>
                 <button onClick={() => handleRemoveFromCart(item.id)}><AiOutlineMinusSquare className="text-[30px] text-gray-500 hover:bg-gray-600 hover:text-white" /></button>
+                <p className="text-red-600">{DollarUsd.format(item.price)}</p>
+                <button onClick={() => handleAddToCart(item)} ><AiOutlinePlusSquare className="text-[30px] text-gray-500 hover:bg-gray-600 hover:text-white" /></button>
+                
                 </div>
                 
               </div>
               ))}
-              <p>Total: {DollarUsd.format(total(cart))}</p>
+
+              {cart.length > 0 && <p>Total: {DollarUsd.format(total(cart))}</p>}
             </div>
         </div>
     </div>

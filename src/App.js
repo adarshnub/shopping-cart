@@ -3,6 +3,7 @@ import {useEffect ,useState} from "react";
 import Header from "./Components/Header";
 import Product from "./Components/Product";
 import Cart from "./Components/Cart";
+import Filters from "./Components/Filters";
 
 
 
@@ -12,6 +13,8 @@ function App() {
   const [filters,setFilters] = useState([]);
   const [cart,setCart] = useState([]);
 
+  const [activeCategory,setActiveCategory] = useState('All');
+  const [activePrice,setActivePrice] = useState('');
   const [isShowCart,setIsShowCart] = useState(false);
 
   useEffect(()=>{
@@ -71,7 +74,17 @@ const handleRemoveFromCart = (id) =>{
   return (
     <div className="App ">
       <div className="bg-red-700 ">
-      <Header cart={cart} setIsShowCart={setIsShowCart}/>
+      <Header 
+      cart={cart} 
+      setIsShowCart={setIsShowCart}/>
+      </div>
+
+      <div className="container mx-auto my-4">
+      <Filters
+      setActivePrice={setActivePrice}
+      activePrice={activePrice}
+      activeCategory={activeCategory} 
+      setActiveCategory={setActiveCategory} />
       </div>
 
       <div className="flex flex-wrap my-4 container mx-auto">
