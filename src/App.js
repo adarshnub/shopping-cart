@@ -49,6 +49,22 @@ const handleAddToCart = (product) =>{
 };
 
 
+//Handle remove from cart
+const handleRemoveFromCart = (id) =>{
+  setCart((prev)=>{
+    return prev.reduce((cal,item)=>{
+      if(item.id===id){
+        if(item.amount===1) return cal;
+
+        return [...cal, {...item,amount:item.amount -1}];
+      }
+      return [...cal, {...item}];
+
+    },[]);
+  });
+};
+
+
   console.log(products);
 
 
@@ -67,7 +83,12 @@ const handleAddToCart = (product) =>{
         ))}
       </div>
 
-     {isShowCart && <Cart cart={cart} setIsShowCart={setIsShowCart} />}
+     {isShowCart && (
+     <Cart 
+     cart={cart}
+     handleRemoveFromCart={handleRemoveFromCart}
+     handleAddToCart={handleAddToCart} 
+     setIsShowCart={setIsShowCart} />)}
     </div>
     );
 }

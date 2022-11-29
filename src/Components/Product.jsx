@@ -1,6 +1,7 @@
 import React from 'react';
 
  const Product = ({product,handleAddToCart}) => {
+  //Dollar conversion
     const DollarUsd = new Intl.NumberFormat('en-US', {
         style:'currency',
         currency:'USD',
@@ -8,7 +9,7 @@ import React from 'react';
 
 
   return (
-    <div className="flex-1 flex flex-col self-stretch items-center min-w-[250px] border-2 border-['lightgray'] px-2 mr-2 mb-2 rounded-lg">
+    <div className="flex-1 flex flex-col self-stretch items-center min-w-[250px] border-2 border-['lightgray'] px-2 mr-2 mb-2 rounded-lg hover:bg-blue-100">
         <div className="w-[100px]">
             <img 
             className="w-full h-full"
